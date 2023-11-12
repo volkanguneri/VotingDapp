@@ -6,6 +6,8 @@ import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { hardhat } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
+// import { GlobalStyles } from "./global.styled";
+
 const { chains, publicClient } = configureChains([hardhat], [publicProvider()]);
 const { connectors } = getDefaultWallets({
   appName: "My RainbowKit App",
@@ -19,12 +21,20 @@ const wagmiConfig = createConfig({
 });
 
 export default function RootLayout({ children }) {
+  const bodyStyle = {
+    marginInline: "20%",
+    marginTop: "2rem",
+    // Add more inline styles as needed
+  };
+
   return (
     <html lang="en">
-      <body>
+      {/* <GlobalStyles> */}
+      <body style={bodyStyle}>
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains}>{children}</RainbowKitProvider>
         </WagmiConfig>
+        {/* </GlobalStyles> */}
       </body>
     </html>
   );

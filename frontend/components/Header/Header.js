@@ -1,11 +1,13 @@
+"use client";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { StyledHeader, StyledLogo } from "./Header.styled";
 
 const Header = () => {
   return (
-    <div>
-      <p>Logo</p>
+    <StyledHeader>
+      <StyledLogo>Logo</StyledLogo>
       <ConnectButton />
-    </div>
+    </StyledHeader>
   );
 };
 
