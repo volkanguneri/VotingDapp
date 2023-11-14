@@ -31,10 +31,10 @@ const Whitelist = () => {
         address: contractAddress,
         abi: abi,
         functionName: "addVoter",
-        value: { voter },
+        args: [voter],
       });
       const { hash } = await writeContract(request);
-      alert("tout va bien");
+      alert("Contract written");
     } catch (err) {
       alert(err.message);
     }

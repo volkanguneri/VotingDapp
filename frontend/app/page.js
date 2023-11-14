@@ -6,6 +6,7 @@ import TallyVote from "@/components/TallyVote/TallyVote";
 import Vote from "@/components/Vote/Vote";
 import Workflow from "@/components/Workflow/Workflow";
 import State from "@/components/State/State";
+import GetterVoter from "@/components/GetterVoter/GetterVoter";
 
 export default function Home() {
   // const SectionFlex = {
@@ -20,6 +21,7 @@ export default function Home() {
       <State />
       {/* <div> */}
       <Whitelist />
+      <GetterVoter />
       <Proposals />
       <Vote />
       <TallyVote />
