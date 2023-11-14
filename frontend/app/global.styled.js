@@ -8,6 +8,8 @@ const GlobalStyles = createGlobalStyle`
   *::after {
     box-sizing: border-box;
     text-decoration: none;
+    border: none;
+    outline:0;
   }
 
   body {
@@ -15,7 +17,11 @@ const GlobalStyles = createGlobalStyle`
     justify-content: center;
     align-items: center;
     background-color: hsl(0, 0%, 90%);
-    margin-inline: 2rem;
+    margin-inline: 0rem;
+
+    // font-family: "Georgia";
+    font-family: "Garamond", serif;
+
   }
 `;
 

@@ -3,8 +3,12 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   display: flex;
-  margin-bottom: 5rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 2rem;
 `;
-export const StyledLogo = styled.p`
+export const StyledLogo = styled.h1`
   flex-grow: 1;
+  width: 4em;
 `;

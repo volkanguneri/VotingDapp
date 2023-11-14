@@ -5,6 +5,7 @@ import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { hardhat } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
+import { Flex } from "@/components/Styles/Flex.styled";
 
 // import { GlobalStyles } from "./global.styled";
 
@@ -22,9 +23,16 @@ const wagmiConfig = createConfig({
 
 export default function RootLayout({ children }) {
   const bodyStyle = {
-    marginInline: "20%",
+    marginInline: "25%",
     marginTop: "2rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     // Add more inline styles as needed
+    // backgroundColor: "hsl(0, 0%, 90%)",
+
+    // font-family: "Georgia";
+    fontFamily: "Garamond",
   };
 
   return (

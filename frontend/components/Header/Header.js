@@ -5,7 +5,7 @@ import { StyledHeader, StyledLogo } from "./Header.styled";
 const Header = () => {
   return (
     <StyledHeader>
-      <StyledLogo>Logo</StyledLogo>
+      <StyledLogo>Voting Dapp</StyledLogo>
       <ConnectButton />
     </StyledHeader>
   );
