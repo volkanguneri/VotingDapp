@@ -14,7 +14,7 @@ import { Flex } from "../Styles/Flex.styled";
 import { H2 } from "../Styles/H2.styled";
 import { Input } from "../Styles/Input.styled";
 import { Button } from "../Styles/Button.styled";
-import { Section } from "../Styles/Section.styled";
+import { Label } from "../Styles/Label.styled";
 
 const Vote = () => {
   const [proposalId, setProposalId] = useState("");
@@ -35,17 +35,17 @@ const Vote = () => {
   };
 
   return (
-    <Section>
+    <Label>
       <H2>Vote</H2>
       <Flex>
         <Input
-          placeholder="Enter en proposal ID"
+          placeholder="Enter a proposal ID"
           value={proposalId}
           onChange={(e) => setProposalId(e.target.value)}
         ></Input>
         <Button onClick={setVote}>Submit</Button>
       </Flex>
-    </Section>
+    </Label>
   );
 };
 export default Vote;

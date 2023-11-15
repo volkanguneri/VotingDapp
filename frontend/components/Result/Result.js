@@ -10,20 +10,13 @@ import { readContract } from "@wagmi/core";
 import { abi, contractAddress } from "../../constants/index";
 
 // Styled Components
-import { Flex } from "../Styles/Flex.styled";
 import { H2 } from "../Styles/H2.styled";
-import { Input } from "../Styles/Input.styled";
 import { Button } from "../Styles/Button.styled";
+import { Label } from "../Styles/Label.styled";
 
 const Result = () => {
   const [winningProposalID, setWinningProposalID] = useState("");
-  const [proposal, setProposal] = useState(null); // Ajout d'un état pour stocker les données de la proposition
-
-  const resultStyle = {
-    display: "flex",
-    justifyContent: "flex-start",
-    marginTop: "2em",
-  };
+  const [proposal, setProposal] = useState("");
 
   const displayResult = async () => {
     try {
@@ -33,19 +26,19 @@ const Result = () => {
         functionName: "winningProposalID",
       });
       setWinningProposalID(data);
-      getProposal(winningProposalID);
+      getProposal(data);
     } catch (err) {
       alert(err.message);
     }
   };
 
-  const getProposal = async () => {
+  const getProposal = async (proposalId) => {
     try {
       const proposalData = await readContract({
         address: contractAddress,
         abi: abi,
         functionName: "getOneProposal",
-        args: [winningProposalID],
+        args: [proposalId],
       });
 
       setProposal(proposalData);
@@ -55,10 +48,9 @@ const Result = () => {
   };
 
   return (
-    <>
-      <section style={resultStyle}>
-        <Button onClick={displayResult}>Result</Button>
-      </section>
+    <Label>
+      <Button onClick={displayResult}>Result</Button>
+
       {winningProposalID && (
         <div>
           <H2>Result</H2>
@@ -76,7 +68,7 @@ const Result = () => {
           )}
         </div>
       )}
-    </>
+    </Label>
   );
 };
 

@@ -14,15 +14,10 @@ import { Flex } from "../Styles/Flex.styled";
 import { H2 } from "../Styles/H2.styled";
 import { Input } from "../Styles/Input.styled";
 import { Button } from "../Styles/Button.styled";
-import { Section } from "../Styles/Section.styled";
+import { Label } from "../Styles/Label.styled";
 
 const Whitelist = () => {
   const [voter, setVoter] = useState("");
-
-  // ABI encoding params/values length mismatch.
-  // Expected length (params): 1
-  // Given length (values): 0
-  // Version: viem@1.18
 
   // Add Voter Function
   const addVoter = async () => {
@@ -41,7 +36,7 @@ const Whitelist = () => {
   };
 
   return (
-    <Section>
+    <Label>
       <H2>Add Voter</H2>
       <Flex>
         <Input
@@ -51,7 +46,7 @@ const Whitelist = () => {
         ></Input>
         <Button onClick={addVoter}>Submit</Button>
       </Flex>
-    </Section>
+    </Label>
   );
 };
 

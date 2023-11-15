@@ -10,5 +10,5 @@ export const StyledHeader = styled.header`
 `;
 export const StyledLogo = styled.h1`
   flex-grow: 1;
-  width: 4em;
+  color: blue;
 `;

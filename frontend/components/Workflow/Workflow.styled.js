@@ -13,6 +13,7 @@ export const Button = styled.button`
   gap: 1em;
   margin-block: 2rem;
   padding: 1em;
+  border: none;
   cursor: pointer;
 
   &:focus {

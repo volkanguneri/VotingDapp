@@ -28,21 +28,16 @@ export default function RootLayout({ children }) {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // Add more inline styles as needed
-    // backgroundColor: "hsl(0, 0%, 90%)",
-
-    // font-family: "Georgia";
+    backgroundColor: "hsl(0, 0%, 90%)",
     fontFamily: "Garamond",
   };
 
   return (
     <html lang="en">
-      {/* <GlobalStyles> */}
       <body style={bodyStyle}>
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains}>{children}</RainbowKitProvider>
         </WagmiConfig>
-        {/* </GlobalStyles> */}
       </body>
     </html>
   );

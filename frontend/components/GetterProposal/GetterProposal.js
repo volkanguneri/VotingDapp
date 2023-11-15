@@ -16,12 +16,13 @@ import { Flex } from "../Styles/Flex.styled";
 import { H2 } from "../Styles/H2.styled";
 import { Input } from "../Styles/Input.styled";
 import { Button } from "../Styles/Button.styled";
+import { Label } from "../Styles/Label.styled";
 
 // ... Importations nécessaires ...
 
 const GetterProposal = () => {
   const [proposalId, setProposalId] = useState("");
-  const [contractData, setContractData] = useState(null);
+  const [contractData, setContractData] = useState("");
 
   const getProposal = async () => {
     try {
@@ -39,29 +40,31 @@ const GetterProposal = () => {
   };
 
   return (
-    <Flex>
+    <Label>
       <H2>Get Proposal</H2>
-      <Input
-        placeholder="Enter the proposal ID"
-        value={proposalId}
-        onChange={(e) => setProposalId(e.target.value)}
-      ></Input>
-      <Button onClick={getProposal}>Submit</Button>
+      <Flex>
+        <Input
+          placeholder="Enter a proposal ID"
+          value={proposalId}
+          onChange={(e) => setProposalId(e.target.value)}
+        ></Input>
+        <Button onClick={getProposal}>Submit</Button>
 
-      {contractData && (
-        <div>
-          <H2>Proposal Information </H2>
-          <ul>
-            <li>
-              <strong>Description:</strong> {contractData.description}
-            </li>
-            <li>
-              <strong>Vote Count:</strong> {contractData.voteCount.toString()}
-            </li>
-          </ul>
-        </div>
-      )}
-    </Flex>
+        {contractData && (
+          <div>
+            <H2>Proposal Information </H2>
+            <ul>
+              <li>
+                <strong>Description:</strong> {contractData.description}
+              </li>
+              <li>
+                <strong>Vote Count:</strong> {contractData.voteCount.toString()}
+              </li>
+            </ul>
+          </div>
+        )}
+      </Flex>
+    </Label>
   );
 };
 
