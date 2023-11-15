@@ -7,6 +7,7 @@ import Vote from "@/components/Vote/Vote";
 import Workflow from "@/components/Workflow/Workflow";
 import State from "@/components/State/State";
 import GetterVoter from "@/components/GetterVoter/GetterVoter";
+import GetterProposal from "@/components/GetterProposal/GetterProposal";
 
 export default function Home() {
   // const SectionFlex = {
@@ -23,6 +24,7 @@ export default function Home() {
       <Whitelist />
       <GetterVoter />
       <Proposals />
+      <GetterProposal />
       <Vote />
       <TallyVote />
       <Result />
