@@ -17,6 +17,7 @@ import { H2 } from "../Styles/H2.styled";
 import { Input } from "../Styles/Input.styled";
 import { Button } from "../Styles/Button.styled";
 import { Label } from "../Styles/Label.styled";
+import { StyledInfoDiv } from "../Styles/InfoDiv.styled";
 
 // ... Importations nécessaires ...
 
@@ -45,25 +46,29 @@ const GetterProposal = () => {
       <Flex>
         <Input
           placeholder="Enter a proposal ID"
+          type="number"
           value={proposalId}
           onChange={(e) => setProposalId(e.target.value)}
+          style={{ appearance: "textfield" }}
         ></Input>
-        <Button onClick={getProposal}>Submit</Button>
-
-        {contractData && (
-          <div>
-            <H2>Proposal Information </H2>
-            <ul>
-              <li>
-                <strong>Description:</strong> {contractData.description}
-              </li>
-              <li>
-                <strong>Vote Count:</strong> {contractData.voteCount.toString()}
-              </li>
-            </ul>
-          </div>
-        )}
+        <Button type="button" onClick={getProposal}>
+          Submit
+        </Button>
       </Flex>
+
+      {contractData && (
+        <StyledInfoDiv>
+          <ul>
+            <H2>Proposal Information </H2>
+            <li>
+              <strong>Description:</strong> {contractData.description}
+            </li>
+            <li>
+              <strong>Vote Count:</strong> {contractData.voteCount.toString()}
+            </li>
+          </ul>
+        </StyledInfoDiv>
+      )}
     </Label>
   );
 };

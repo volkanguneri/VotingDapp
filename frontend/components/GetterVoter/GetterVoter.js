@@ -17,6 +17,7 @@ import { H2 } from "../Styles/H2.styled";
 import { Input } from "../Styles/Input.styled";
 import { Button } from "../Styles/Button.styled";
 import { Label } from "../Styles/Label.styled";
+import { StyledInfoDiv } from "../Styles/InfoDiv.styled";
 
 const GetterVoter = () => {
   const [voter, setVoter] = useState("");
@@ -45,40 +46,41 @@ const GetterVoter = () => {
           value={voter}
           onChange={(e) => setVoter(e.target.value)}
         ></Input>
-        <Button onClick={getVoter}>Submit</Button>
-
-        {contractData && (
-          <div>
-            <H2>Voter Information </H2>
-            <ul>
-              <li>
-                {/* <strong>Has Voted:</strong> */}
-                {contractData.hasVoted ? (
-                  <strong>This voter has already voted</strong>
-                ) : (
-                  <strong>This voter has not voted yet</strong>
-                )}
-              </li>
-              <li>
-                {contractData.isRegistered ? (
-                  <strong>This voter is already registered</strong>
-                ) : (
-                  <strong>This voter is not registered yet</strong>
-                )}
-              </li>
-
-              {contractData.hasVoted ? (
-                <li>
-                  <strong>
-                    The voter's voted proposal id is{" "}
-                    {contractData.votedProposalId}
-                  </strong>
-                </li>
-              ) : null}
-            </ul>
-          </div>
-        )}
+        <Button type="button" onClick={getVoter}>
+          Submit
+        </Button>
       </Flex>
+
+      {contractData && (
+        <StyledInfoDiv>
+          <ul>
+            <H2>Voter Information </H2>
+            <li>
+              {contractData.hasVoted ? (
+                <strong>This voter has already voted</strong>
+              ) : (
+                <strong>This voter has not voted yet</strong>
+              )}
+            </li>
+            <li>
+              {contractData.isRegistered ? (
+                <strong>This voter is already registered</strong>
+              ) : (
+                <strong>This voter is not registered yet</strong>
+              )}
+            </li>
+
+            {contractData.hasVoted ? (
+              <li>
+                <strong>
+                  The voter's voted proposal id is{" "}
+                  {contractData.votedProposalId}
+                </strong>
+              </li>
+            ) : null}
+          </ul>
+        </StyledInfoDiv>
+      )}
     </Label>
   );
 };

@@ -101,16 +101,22 @@ const Workflow = () => {
 
   return (
     <StyledWorkflow>
-      <Button>Registering Voters</Button>
-      <Button onClick={startProposalsRegistering}>
+      <Button type="button">Registering Voters</Button>
+      <Button type="button" onClick={startProposalsRegistering}>
         Proposals Registration Started
       </Button>
-      <Button onClick={endProposalsRegistering}>
+      <Button type="button" onClick={endProposalsRegistering}>
         Proposals Registration Ended
       </Button>
-      <Button onClick={startVotingSession}>Voting Session Started</Button>
-      <Button onClick={endVotingSession}>Voting Session Ended</Button>
-      <Button onClick={tallyVote}>Votes Tallied</Button>
+      <Button type="button" onClick={startVotingSession}>
+        Voting Session Started
+      </Button>
+      <Button type="button" onClick={endVotingSession}>
+        Voting Session Ended
+      </Button>
+      <Button type="button" onClick={tallyVote}>
+        Votes Tallied
+      </Button>
     </StyledWorkflow>
   );
 };

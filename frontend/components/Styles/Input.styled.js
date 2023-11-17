@@ -8,4 +8,5 @@ export const Input = styled.input`
   width: 30em;
   margin-right: 3em;
   border: none;
+  outline: none;
 `;

@@ -4,7 +4,11 @@
 import { useState } from "react";
 
 // Wagmi
-import { prepareWriteContract, writeContract } from "@wagmi/core";
+import {
+  prepareWriteContract,
+  writeContract,
+  waitForTransaction,
+} from "@wagmi/core";
 // import { useAccount } from "wagmi";
 
 // Contract's information
@@ -29,7 +33,9 @@ const Proposals = () => {
       });
       const { hash } = await writeContract(request);
       alert("Contract written");
-      // setDescription([...description, description]);
+      const data = await waitForTransaction({
+        hash: hash,
+      });
     } catch (err) {
       alert(err.message);
     }
@@ -44,7 +50,9 @@ const Proposals = () => {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         ></Input>
-        <Button onClick={addProposal}>Submit</Button>
+        <Button type="button" onClick={addProposal}>
+          Submit
+        </Button>
       </Flex>
     </Label>
   );

@@ -5,7 +5,8 @@ import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { hardhat } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
-import { Flex } from "@/components/Styles/Flex.styled";
+
+// require("dotenv").config();
 
 // import { GlobalStyles } from "./global.styled";
 
@@ -15,6 +16,7 @@ const { connectors } = getDefaultWallets({
   projectId: "48850a402642441a360aaf998ac21039",
   chains,
 });
+
 const wagmiConfig = createConfig({
   autoConnect: false,
   connectors,

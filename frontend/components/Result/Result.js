@@ -49,7 +49,9 @@ const Result = () => {
 
   return (
     <Label>
-      <Button onClick={displayResult}>Result</Button>
+      <Button type="button" onClick={displayResult}>
+        Result
+      </Button>
 
       {winningProposalID && (
         <div>
