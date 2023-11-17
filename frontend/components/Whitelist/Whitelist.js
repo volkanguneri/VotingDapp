@@ -3,6 +3,9 @@
 // ReactJs
 import { useEffect, useState } from "react";
 
+// React Tostify
+import "react-toastify/dist/ReactToastify.css";
+
 // Wagmi
 import {
   prepareWriteContract,
@@ -11,7 +14,7 @@ import {
 } from "@wagmi/core";
 // import { useAccount } from "wagmi";
 
-// Viem
+// wagmi / Viem
 import { parseAbiItem } from "viem";
 import { usePublicClient } from "wagmi";
 import { hardhat } from "viem/chains";
@@ -42,7 +45,7 @@ const Whitelist = () => {
       const logs = await client.getLogs({
         address: contractAddress,
         event: parseAbiItem("event VoterRegistered(address voterAddress)"),
-        fromBlock: 0n,
+        fromBlock: "latest",
         toBlock: "latest",
       });
 
@@ -69,6 +72,8 @@ const Whitelist = () => {
       });
 
       getVoterRegisteredEvents();
+
+      alert(`Added Voter Address: ${voter}`);
     } catch (err) {
       alert(err.message);
     }
@@ -92,20 +97,6 @@ const Whitelist = () => {
           Submit
         </Button>
       </Flex>
-
-      {voterRegisteredEvents ? (
-        <div>
-          <ul>
-            {console.log(voterRegisteredEvents) &&
-              voterRegisteredEvents.map((address, index) => (
-                <li key={index}>
-                  <span>Added Voter Address : </span>
-                  {address}
-                </li>
-              ))}
-          </ul>
-        </div>
-      ) : null}
     </Label>
   );
 };

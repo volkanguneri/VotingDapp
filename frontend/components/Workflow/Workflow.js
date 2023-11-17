@@ -6,6 +6,11 @@ import { useState } from "react";
 // Wagmi
 import { prepareWriteContract, writeContract } from "@wagmi/core";
 import { abi, contractAddress } from "../../constants/index";
+import { usePublicClient } from "wagmi";
+
+// Viem
+import { parseAbiItem } from "viem";
+import { hardhat } from "viem/chains";
 
 // Styled Components
 import { StyledWorkflow, Button } from "./Workflow.styled";
