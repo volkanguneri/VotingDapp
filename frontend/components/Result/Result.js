@@ -18,19 +18,27 @@ const Result = () => {
   const [winningProposalID, setWinningProposalID] = useState("");
   const [proposal, setProposal] = useState("");
 
+  // ...
+
   const displayResult = async () => {
     try {
-      const data = await readContract({
+      const winningProposalID = await readContract({
         address: contractAddress,
         abi: abi,
         functionName: "winningProposalID",
       });
-      setWinningProposalID(data);
-      getProposal(data);
+      setWinningProposalID(winningProposalID);
+
+      // Only call getProposal if winningProposalID is truthy
+      if (winningProposalID) {
+        getProposal(winningProposalID);
+      }
     } catch (err) {
       alert(err.message);
     }
   };
+
+  // ...
 
   const getProposal = async (proposalId) => {
     try {
@@ -54,15 +62,30 @@ const Result = () => {
       </Button>
 
       {winningProposalID && (
-        <div>
-          <H2>Result</H2>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "1em",
+            marginTop: "2em",
+            backgroundColor: "#f9f9f9",
+            width: "100%",
+            borderRadius: "10px",
+            paddingBottom: "1em",
+            paddingTop: "1em",
+          }}
+        >
           {proposal ? (
-            <ul>
+            <ul style={{ listStyle: "none" }}>
               <li>
-                <strong>Description:</strong> {proposal.description.toString()}
+                <span>Description:</span>{" "}
+                <strong>{proposal.description.toString()}</strong>
               </li>
               <li>
-                <strong>Vote Count:</strong> {proposal.voteCount.toString()}
+                <span>Vote Count:</span>{" "}
+                <strong>{proposal.voteCount.toString()}</strong>
               </li>
             </ul>
           ) : (

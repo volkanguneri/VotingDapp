@@ -1,7 +1,8 @@
 "use client";
 
-const State = () => {
-  const H2Styled = {
+const State = ({ workflowState }) => {
+  console.log(workflowState);
+  const h2Styled = {
     textAlign: "center",
     marginBottom: "2em",
     color: "red",
@@ -10,7 +11,7 @@ const State = () => {
     borderRadius: "10px",
   };
 
-  return <h2 style={H2Styled}>Registering Voters</h2>;
+  return <h2 style={h2Styled}>{workflowState}</h2>;
 };
 
 export default State;

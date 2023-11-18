@@ -79,7 +79,6 @@ const Whitelist = () => {
     }
   };
 
-  // Utilisation de useEffect pour s'abonner aux événements lors du montage initial
   useEffect(() => {
     getVoterRegisteredEvents();
   }, []);
@@ -100,5 +99,4 @@ const Whitelist = () => {
     </Label>
   );
 };
-
 export default Whitelist;

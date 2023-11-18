@@ -58,6 +58,8 @@ const Proposals = () => {
     }
   };
 
+  // Use UseEffect
+
   const getProposalRegisteredEvents = async () => {
     try {
       // get.Logs from viem

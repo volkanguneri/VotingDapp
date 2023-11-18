@@ -11,7 +11,6 @@ export default function Home() {
     <>
       <Header />
       <Workflow />
-      <State />
       <Form />
       <Footer />
     </>
