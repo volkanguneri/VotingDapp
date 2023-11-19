@@ -1,7 +1,9 @@
 "use client";
 
 // ReactJs
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+
+// import { useForm } from "react-hook-form";
 
 // React Tostify
 import "react-toastify/dist/ReactToastify.css";
@@ -29,11 +31,16 @@ import { Button } from "../Styles/Button.styled";
 import { Label } from "../Styles/Label.styled";
 
 const Whitelist = () => {
-  // Voter Information
-  const [voter, setVoter] = useState("");
-
   // Wagmi function / client creation for event listenning
   const client = usePublicClient();
+
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   reset,
+  // } = useForm();
+
+  const [voter, setVoter] = useState("");
 
   // Event information
   const [voterRegisteredEvents, setVoterRegisteredEvents] = useState([]);
@@ -58,6 +65,8 @@ const Whitelist = () => {
 
   // Fonction pour ajouter un électeur
   const addVoter = async () => {
+    // const initialize = useRef("");
+
     try {
       const { request } = await prepareWriteContract({
         address: contractAddress,
@@ -92,7 +101,14 @@ const Whitelist = () => {
           value={voter}
           onChange={(e) => setVoter(e.target.value)}
         />
-        <Button type="button" onClick={addVoter}>
+        <Button
+          type="button"
+          onClick={() => {
+            addVoter();
+            // handleFormReset();
+            // reset();
+          }}
+        >
           Submit
         </Button>
       </Flex>
